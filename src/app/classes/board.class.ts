@@ -1,15 +1,15 @@
 export class Board {
-    grid: {
+    board: {
         isFilled: boolean,
         playerId: number | null,
     }[][] = []
 
-    private numberOfRows: number = 7;
-    private numberOfColumns: number = 6;
+    numberOfRows: number = 7;
+    numberOfColumns: number = 6;
 
     constructor() {
         this.reset()
-        console.log(this.grid)
+        console.log(this.board)
     }
 
     reset(): void {
@@ -56,9 +56,9 @@ export class Board {
         // }
 
         for (let i = 0; i < this.numberOfRows; i++) {
-            this.grid[i] = [];
+            this.board[i] = [];
             for (let j = 0; j < this.numberOfColumns; j++) {
-                this.grid[i][j] = {
+                this.board[i][j] = {
                     isFilled: false,
                     playerId: null
                 }
@@ -67,7 +67,7 @@ export class Board {
     }
 
     drop(row: number, column: number, playerId: number): void {
-        this.grid[row][column] = {
+        this.board[row][column] = {
             isFilled: true,
             playerId: playerId
         }
@@ -78,7 +78,7 @@ export class Board {
 
         // Rows
         for (let i = 0; i < this.numberOfRows; i++) {
-            const row = this.grid[i];
+            const row = this.board[i];
 
             for (let j = 0; j < row.length; j++) {
                 const slot = row[0];
@@ -98,7 +98,7 @@ export class Board {
         // Columns
         for (let i = 0; i < this.numberOfColumns; i++) {
             for (let j = 0; j < this.numberOfRows; j++) {
-                const slot = this.grid[j][i];
+                const slot = this.board[j][i];
                 if (slot.isFilled && slot.playerId === playerId) {
                     counter++
                 } else {
@@ -115,7 +115,7 @@ export class Board {
         // Diagonal
         for (let i = 0; i < this.numberOfRows; i++) {
             for (let j = 0; j < this.numberOfColumns; j++) {
-                const slot = this.grid[i][j];
+                const slot = this.board[i][j];
                 if (i === j) {
                     if (slot.isFilled && slot.playerId === playerId) {
                         counter++;
@@ -133,7 +133,7 @@ export class Board {
 
         for (let i = 0; i < this.numberOfRows; i++) {
             for (let j = 0; j < this.numberOfColumns; j++) {
-                const slot = this.grid[i][j];
+                const slot = this.board[i][j];
                 if (i + j === this.numberOfColumns - 1) {
                     if (slot.isFilled && slot.playerId === playerId) {
                         counter++;
