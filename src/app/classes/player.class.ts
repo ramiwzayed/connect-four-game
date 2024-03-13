@@ -1,13 +1,13 @@
-import {Coin} from "./coin.class";
-
 export class Player {
-    coin!: Coin
-    turn!: boolean
-    name!: string;
-    result!: string;
+  turn!: boolean
+  name!: string;
+  id!: number;
+  color!: string
 
-    constructor(name: string, turn: boolean) {
-        this.name = name
-        this.turn = turn
-    }
+  constructor(id: number, name: string, turn: boolean, color: string) {
+    this.id = id
+    this.name = name
+    this.turn = turn
+    this.color = color
+  }
 }
