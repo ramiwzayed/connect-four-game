@@ -9,7 +9,6 @@ export class Board {
 
   constructor() {
     this.reset()
-    console.log(this.board)
   }
 
   reset(): void {
