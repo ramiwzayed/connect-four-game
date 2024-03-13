@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-slot',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './slot.component.scss'
 })
 export class SlotComponent {
+  @Input() color: string = 'white'
+  @Output() onClick: EventEmitter<any> = new EventEmitter<any>()
+
 
 }
