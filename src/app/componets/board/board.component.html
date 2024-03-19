@@ -17,4 +17,7 @@
 } @else {
   <p class="bottom-info">Turn Player: {{ getTurnPlayer().name }}</p>
 }
+@if (isRestart) {
+  <button id="restart">Restart Game</button>
+}
 
