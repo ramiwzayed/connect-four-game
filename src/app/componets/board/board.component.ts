@@ -17,12 +17,13 @@ export class BoardComponent implements OnInit {
   player1!: Player
   player2!: Player
   isWinner!: boolean
+  isRestart!: boolean
 
   ngOnInit(): void {
     this.boardObject = new Board()
-
     this.player1 = new Player(1, "Maria", true, "#9b2a91")
     this.player2 = new Player(2, "Rami", false, "#fff105")
+
   }
 
   createRange(number: number): number[] {
